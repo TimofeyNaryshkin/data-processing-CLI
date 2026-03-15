@@ -8,6 +8,7 @@ import { csvToJson } from "./commands/csvToJson.js";
 import { jsonToCsv } from "./commands/jsonToCsv.js";
 import { count } from "./commands/count.js";
 import { hash } from "./commands/hash.js";
+import { hashCompare } from "./commands/hashCompare.js";
 
 const interactive = () => {
   const rl = readline.createInterface({
@@ -44,6 +45,7 @@ const interactive = () => {
         await hash(parsedArgs)
         break;
       case "hash-compare":
+        await hashCompare(parsedArgs)
         break;
       case "encrypt":
         break;

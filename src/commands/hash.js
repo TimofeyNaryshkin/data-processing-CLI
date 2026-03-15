@@ -20,13 +20,13 @@ export async function hash(args) {
     const newHash = `${args[1]}: ${hash.digest("hex")}`;
     if (args[2]) {
       const output = createWriteStream(
-        path.resolve(state.cwd, `${args[0]}.${args[1]}.txt`),
+        path.resolve(state.cwd, `${args[0]}.${args[1]}`),
       );
       await pipeline(newHash, output);
     } else {
       console.log(newHash);
     }
-  } catch (e) {
-    console.log("Operation failed", e.message);
+  } catch {
+    console.log("Operation failed");
   }
 }

@@ -21,7 +21,7 @@ export function argParser(line) {
       inputIndex = args.indexOf("--input");
       parsedArgs = args[inputIndex + 1];
       break;
-    case "hash":
+    case "hash": {
       inputIndex = args.indexOf("--input");
       const algIndex = args.indexOf("--algorithm");
       const saveIndex = args.indexOf("--save");
@@ -30,6 +30,17 @@ export function argParser(line) {
       const save = saveIndex === -1 ? false : true;
       parsedArgs = [filePath, alg, save];
       break;
+    }
+    case "hash-compare": {
+      inputIndex = args.indexOf("--input");
+      const hashIndex = args.indexOf("--hash");
+      const algIndex = args.indexOf("--algorithm");
+      const filePath = inputIndex === -1 ? undefined : args[inputIndex + 1];
+      const hashPath = hashIndex === -1 ? undefined : args[hashIndex + 1];
+      const alg = algIndex === -1 ? "sha256" : args[algIndex + 1];
+      parsedArgs = [filePath, hashPath, alg];
+      break;
+    }
     default:
       break;
   }
