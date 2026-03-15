@@ -61,6 +61,14 @@ export function argParser(line) {
       parsedArgs = [filePath, outputPath, password];
       break;
     }
+    case "log-stats": {
+      inputIndex = args.indexOf("--input");
+      outputIndex = args.indexOf("--output");
+      const filePath = inputIndex === -1 ? undefined : args[inputIndex + 1];
+      const outputPath = outputIndex === -1 ? undefined : args[outputIndex + 1];
+      parsedArgs = [filePath, outputPath];
+      break;
+    }
     default:
       break;
   }
