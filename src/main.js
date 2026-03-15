@@ -3,6 +3,8 @@ import os from "node:os";
 import { state } from "./state.js";
 import { printCwd } from "./utils/printCwd.js";
 import { cd, ls, up } from "./navigation.js";
+import { argParser } from "./utils/argParser.js";
+import { csvToJson } from "./commands/csvToJson.js";
 
 const interactive = () => {
   const rl = readline.createInterface({
@@ -15,18 +17,19 @@ const interactive = () => {
   rl.prompt();
 
   rl.on("line", async (line) => {
-    const [cmd, ...args] = line.trim().split(" ")
+    const [cmd, parsedArgs] = argParser(line);
     switch (cmd) {
       case "up":
         up();
         break;
       case "cd":
-        cd(args[0]);
+        cd(parsedArgs);
         break;
       case "ls":
         await ls();
         break;
       case "csv-to-json":
+        await csvToJson(parsedArgs)
         break;
       case "json-to-csv":
         break;

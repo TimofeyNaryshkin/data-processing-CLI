@@ -1,9 +1,18 @@
-export function argParser() {
-  const args = process.argv.slice(2);
-  switch (args[0]) {
+export function argParser(line) {
+  const [cmd, ...args] = line.trim().split(" ");
+  let parsedArgs;
+  switch (cmd) {
     case "cd":
-      return args[1];
+      parsedArgs = args[0];
+      break;
+    case "csv-to-json":
+      const inputIndex = args.indexOf("--input");
+      const outputIndex = args.indexOf("--output");
+      parsedArgs = [args[inputIndex + 1], args[outputIndex + 1]];
+      break;
     default:
       break;
   }
+
+  return [cmd, parsedArgs];
 }
