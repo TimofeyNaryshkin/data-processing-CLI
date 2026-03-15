@@ -17,6 +17,10 @@ export function argParser(line) {
       outputIndex = args.indexOf("--output");
       parsedArgs = [args[inputIndex + 1], args[outputIndex + 1]];
       break;
+    case "count":
+      inputIndex = args.indexOf("--input");
+      parsedArgs = args[inputIndex + 1]
+      break;
     default:
       break;
   }

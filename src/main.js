@@ -6,6 +6,7 @@ import { cd, ls, up } from "./navigation.js";
 import { argParser } from "./utils/argParser.js";
 import { csvToJson } from "./commands/csvToJson.js";
 import { jsonToCsv } from "./commands/jsonToCsv.js";
+import { count } from "./commands/count.js";
 
 const interactive = () => {
   const rl = readline.createInterface({
@@ -36,6 +37,7 @@ const interactive = () => {
         await jsonToCsv(parsedArgs)
         break;
       case "count":
+        count(parsedArgs)
         break;
       case "hash":
         break;
