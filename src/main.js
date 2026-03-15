@@ -7,6 +7,7 @@ import { argParser } from "./utils/argParser.js";
 import { csvToJson } from "./commands/csvToJson.js";
 import { jsonToCsv } from "./commands/jsonToCsv.js";
 import { count } from "./commands/count.js";
+import { hash } from "./commands/hash.js";
 
 const interactive = () => {
   const rl = readline.createInterface({
@@ -40,6 +41,7 @@ const interactive = () => {
         count(parsedArgs)
         break;
       case "hash":
+        await hash(parsedArgs)
         break;
       case "hash-compare":
         break;
