@@ -1,5 +1,3 @@
-export const state = new State();
-
 class State {
   _cwd;
 
@@ -11,3 +9,5 @@ class State {
     this._cwd = path;
   }
 }
+
+export const state = new State();
