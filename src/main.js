@@ -5,6 +5,7 @@ import { printCwd } from "./utils/printCwd.js";
 import { cd, ls, up } from "./navigation.js";
 import { argParser } from "./utils/argParser.js";
 import { csvToJson } from "./commands/csvToJson.js";
+import { jsonToCsv } from "./commands/jsonToCsv.js";
 
 const interactive = () => {
   const rl = readline.createInterface({
@@ -32,6 +33,7 @@ const interactive = () => {
         await csvToJson(parsedArgs)
         break;
       case "json-to-csv":
+        await jsonToCsv(parsedArgs)
         break;
       case "count":
         break;
