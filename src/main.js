@@ -10,6 +10,7 @@ import { count } from "./commands/count.js";
 import { hash } from "./commands/hash.js";
 import { hashCompare } from "./commands/hashCompare.js";
 import { encrypt } from "./commands/encrypt.js";
+import { decrypt } from "./commands/decrypt.js";
 
 const interactive = () => {
   const rl = readline.createInterface({
@@ -34,24 +35,25 @@ const interactive = () => {
         await ls();
         break;
       case "csv-to-json":
-        await csvToJson(parsedArgs)
+        await csvToJson(parsedArgs);
         break;
       case "json-to-csv":
-        await jsonToCsv(parsedArgs)
+        await jsonToCsv(parsedArgs);
         break;
       case "count":
-        count(parsedArgs)
+        count(parsedArgs);
         break;
       case "hash":
-        await hash(parsedArgs)
+        await hash(parsedArgs);
         break;
       case "hash-compare":
-        await hashCompare(parsedArgs)
+        await hashCompare(parsedArgs);
         break;
       case "encrypt":
-        await encrypt(parsedArgs)
+        await encrypt(parsedArgs);
         break;
       case "decrypt":
+        await decrypt(parsedArgs);
         break;
       case "log-stats":
         break;

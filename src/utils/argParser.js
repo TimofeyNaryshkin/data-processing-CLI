@@ -51,6 +51,16 @@ export function argParser(line) {
       parsedArgs = [filePath, outputPath, password];
       break;
     }
+    case "decrypt": {
+      inputIndex = args.indexOf("--input");
+      outputIndex = args.indexOf("--output");
+      const passIndex = args.indexOf("--password");
+      const filePath = inputIndex === -1 ? undefined : args[inputIndex + 1];
+      const outputPath = outputIndex === -1 ? undefined : args[outputIndex + 1];
+      const password = passIndex === -1 ? undefined : args[passIndex + 1];
+      parsedArgs = [filePath, outputPath, password];
+      break;
+    }
     default:
       break;
   }
